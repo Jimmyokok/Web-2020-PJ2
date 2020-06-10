@@ -1,0 +1,44 @@
+footer{
+    display:inline-block;
+    width: 100%;
+    height: 100px;
+    background-color:black;
+}
+.about{
+    width:430px;
+    max-width: 100%;
+    margin:0 auto;
+}
+.copyright{
+    width:720px;
+    margin:0 auto;
+}
+footer div a,footer div p{
+    font-size: 16px;
+    padding-top: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
+    float: left;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
+@media only screen and ( max-width:720px){
+    .copyright{
+        display: none;
+    }
+    footer{
+        height: 75px;
+    }
+}
+@media only screen and ( max-width:430px){
+    .about a{
+        width:49.5vw;
+        float: left;
+        padding:0;
+        padding-top: 30px;
+    }
+    footer{
+        height: 100px;
+    }
+}

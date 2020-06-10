@@ -1,0 +1,120 @@
+/*header css*/
+header{
+    font-size:16px;
+    height: 50px;
+    background-color: black;
+}
+nav a{
+    height: 50px;
+    padding:0 30px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    float: left;
+    color: white;
+    text-decoration: none;
+}
+nav a img{
+    height: 50px;
+    width: 50px;
+}
+header div img{
+    height: 16px;
+    width: 16px;
+}
+a:hover{
+    color: grey;
+}
+nav a:first-child{
+    padding:0;
+}
+.myaccount{
+    cursor: pointer;
+    height: 50px;
+    padding-right: 60px;
+    float: right;
+}
+.dropdown p{
+    cursor: pointer;
+    color: white;
+    padding-top: 15px;
+}
+.dropdown{
+    cursor: pointer;
+    text-decoration: none;
+}
+.dropdown-content{
+    z-index: 999;
+    border:solid 1px grey;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    display: none;
+    width: 120px;
+}
+.myaccount:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content:hover {
+    display: block;
+}
+.dropdown-content a{
+    border-top: solid;
+    border-width: 1px;
+    border-color: grey;
+    padding:10px 10px;
+    color: black;
+    display: block;
+    text-decoration: none;
+}
+.dropdown-content a:hover{
+    color:grey;
+}
+.dropdown-content a:first-child{
+    border-style: none;
+}
+/*去除input蓝框*/
+input,textarea,button,select{
+    outline: none;
+}
+
+/*将p元素光标改回默认*/
+p{
+    cursor: default;
+}
+/*
+    Desktop:1600px+
+    Large:1000px-1600px
+    Medium:600px-1000px
+    Small:430px-600px
+    Tiny:300px-430px
+*/
+@media only screen and ( max-width:600px){
+    header{
+        height: 30px;
+    }
+    nav a{
+        padding:0 10px;
+        height: 30px;
+    }
+    nav a img{
+        height: 30px;
+        width: 30px;
+    }
+    .myaccount{
+        height: 30px;
+        padding-right:20px;
+    }
+    .dropdown p{
+        padding-top: 5px;
+    }
+}
+@media only screen and ( max-width:430px){
+    header{
+        font-size:12px;
+    }
+    .dropdown-content{
+        right: 20px;
+    }
+}

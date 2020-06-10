@@ -1,0 +1,172 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    background-color: #f6f6f6;
+    margin:0;
+    font-size:0;
+    line-height: 0px;
+    font-weight: 500;
+}
+.upload{
+    float: left;
+    font-size: 1vw ;
+    width: 98%;
+    height: auto;
+    margin:calc(1% - 1px) calc(1% - 1px);
+    border:solid 1px grey;
+    border-radius: 5px;
+}
+.main{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-indent: 30px;
+    background-color: rgb(226, 223, 223);
+    color:grey ;
+    height: 3em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 2em;
+}
+.uploadimg{
+    max-width: 100%;
+    min-height: 6em;
+    max-height: 24em;
+}
+.imgpath{
+    height: 3em;
+    float: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+    float: right;
+    border: none;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    width:20%;
+    height: 3vw;
+}
+.button span {
+    font-size:24px;
+    font-weight: 500;
+    position: relative;
+    transition: padding 0.5s;
+}
+.button span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: -5%;
+    right: -10%;
+    transition: 0.5s;
+}
+.button:hover span {
+    padding-right: 10%;
+}
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+.file{
+    z-index: 999;
+    cursor: pointer;
+    left:40%;
+    position: absolute;
+    height: 3vw;
+    width: 20%;
+    opacity: 0;
+}
+.text{
+    padding-top: 1em;
+    width: 96%;
+    float: left;
+}
+.title{
+    width: 100%;
+    height: 2em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.textinput{
+    border:solid 1px grey;
+    border-radius: 10px;
+    width: calc(100% - 2em);
+    height: 2em;
+    padding:0.5em 1em;
+}
+.content,.city,.country{
+    border:solid 1px grey;
+    border-radius: 10px;
+    width: 10%;
+    min-width: 150px;
+    height: 3em;
+    padding:0.5em 1em;
+}
+.descinput{
+    max-lines: 4;
+    word-break: break-all;
+    vertical-align: text-top;
+    line-height: 2em;
+    font-size: 1vw;
+    border:solid 1px grey;
+    border-radius: 10px;
+    width: calc(100% - 2em);
+    height: 8em;
+    padding:0.5em 1em;
+}
+.text:nth-last-child(2){
+    margin-bottom: 2em;
+}
+.button:last-child{
+    cursor: pointer;
+}
+@media only screen and (max-width:1600px){
+    .upload{
+        font-size: 16px ;
+    }
+    .button{
+        height: 48px;
+    }
+}
+@media only screen and (max-width:1000px){
+    .main{
+        height:2em;
+        text-indent: 20px;
+    }
+    .text{
+        padding-top: 0.5em;
+    }
+    .text:nth-last-child(2){
+        margin-bottom: 1.5em;
+    }
+}
+@media only screen and (max-width:600px){
+    .text:nth-last-child(2){
+        margin-bottom: 1em;
+    }
+    .button{
+        width: 40%;
+    }
+}
+@media only screen and (max-width:430px){
+    .button{
+        width: 60%;
+    }
+    .form{
+        padding: 1em 1em;
+    }
+}

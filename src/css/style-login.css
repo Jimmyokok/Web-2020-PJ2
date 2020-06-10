@@ -1,0 +1,161 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    background-color: white;
+    margin:0;
+    font-size:0;
+    line-height: 0px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.head{
+    text-align: center;
+    font-size: 20px;
+    width: 576px;
+    max-width: 100%;
+    height: 200px;
+}
+.head img{
+    object-fit: cover;
+    height: 153px;
+    width: 153px;
+    filter: invert(100%);
+}
+.head p{
+    line-height: 2em;
+}
+.form{  
+    font-size: 20px;
+    padding:1vw 1vw;
+    border:solid 1px grey;
+    border-radius: 5px;
+    float: left;
+    width: 30%;
+    min-width: 800px;
+    margin:10px 0;
+    padding-top: 2vw;
+}
+input,textarea,button,select{
+    outline: none;
+}
+.formform{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formform a{
+    width:100%;
+}
+.form p{
+    line-height: 30px;
+    width: calc(72% + 80px);
+    margin:10px 20px;
+}
+.msg{
+    display:none;
+    color: red;
+}
+.form input{
+    width: 72%;
+    margin:5px 20px;
+    padding:20px 40px;
+    border:solid 1px grey;
+    border-radius: 5px;
+}
+.button{
+    display: inline-block;
+    border: none;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    width:50%;
+    margin: 5% 25%;
+    line-height:400%;
+}
+.button span {
+    font-size:24px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: padding 0.5s;
+}
+.button span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: -5%;
+    right: -10%;
+    transition: 0.5s;
+}
+.button:hover span {
+    padding-right: 10%;
+}
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+.register{
+    float: left;
+    font-size:20px;
+    font-weight: 500;
+    margin:40px auto;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.register a{
+    text-decoration: none;
+}
+.register a:hover{
+    color:grey;
+}
+@media only screen and (max-width:1000px){
+    .form{
+        width:80%;
+        min-width: 540px;
+    }
+    .head img{
+        height: 100px;
+        width: 100px;
+    }
+    .head{
+        height: 150px;
+    }
+    .register{
+        font-size:16px;
+        margin:20px auto;
+    }
+}
+@media only screen and (max-width:600px){
+    .form{
+        width:90%;
+        min-width: 0;
+    }
+    .head img{
+        height: 50px;
+        width: 50px;
+    }
+    .head{
+        height: 100px;
+    }
+    .form p{
+        line-height: 30px;
+        width: calc(72% + 20px);
+        margin:10px 5px;
+    }
+    .form input{
+        margin:5px 5px;
+        padding:20px 10px;
+        border:solid 1px grey;
+        border-radius: 5px;
+    }
+    .register{
+        font-size:12px;
+        margin:10px auto;
+    }
+}

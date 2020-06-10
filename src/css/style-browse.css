@@ -1,0 +1,317 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    background-color: white;
+    margin:0;
+    font-size:0;
+    line-height: 0px;
+    font-weight: 500;
+}
+nav a:nth-child(3){
+    background-color: rgb(44, 43, 43);
+}
+nav a:nth-child(3):hover{
+    color: white;
+}
+.aside{
+    text-indent: 30px;
+    display: block;
+    font-size: 16px;
+    float: left;
+    width:24vw;
+}
+.search,.hotcity{
+    margin: 20px 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: grey;
+    border-radius: 5px;
+}
+.aside a{
+    text-decoration: none;
+}
+.aside a:hover{
+    color:grey;
+}
+.search{
+    height:6em;
+}
+.msg{
+    height: 3em;
+    display: none;
+}
+.search p{
+    line-height: 2.5em;
+    color:rgb(104, 100, 100);
+    background-color: rgb(226, 223, 223);
+    height: 3em;
+    border-bottom: solid 1px grey;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.searchform{
+    height: 3em;
+}
+.searchform input[type="text"]{
+    padding-left: 10px;
+    float: left;
+    box-sizing : border-box;
+    width: calc(100% - 3.5em);
+    height: 100%;
+    border-style: none;
+    border-bottom-left-radius: 5px;
+    border-right: grey solid 1px;
+    border-bottom: grey solid 1px;
+}
+.searchform input[type="submit"]{
+    cursor: pointer;
+    margin:0.5em 0.5em;
+    float: right;
+    background: url(../../img/search.png);
+    width:32px;
+    height:32px;
+    border:none;
+}
+.hotcity,.hotcountry{
+    height:calc(18em + 5px);
+}
+.hotcity a,.hotcity p{
+    line-height: 2.5em;
+    width: 100%;
+    height:3em;
+    float: left;
+}
+.hotcity a{
+    text-align:left;
+    color: dodgerblue;
+    border-top: solid 1px grey;
+}
+.hotcity p{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color:rgb(104, 100, 100);
+    background-color: rgb(226, 223, 223);
+}
+.section{
+    width: calc(70vw + 40px);
+    text-indent: 30px;
+    display: block;
+    font-size: 16px;
+    float: right;
+}
+.main{
+    margin:20px 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: grey;
+    border-radius: 5px;
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    overflow:hidden;
+}
+select{
+    float: left;
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    background: url(../../img/filter.png)no-repeat scroll right center;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 10px 1%;
+    width: 25%;
+    border:solid 1px grey ;
+    border-radius: 5px;
+    padding-left: 20px;
+    height:4em;
+}
+select option{
+    font-size: 24px;
+}
+.section div p{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: rgb(226, 223, 223);
+    color:grey ;
+    height: 3em;
+    line-height: 2.5em;
+    border-bottom: solid 1px grey;
+}
+.filterform{
+    text-indent:0;
+    padding:10px 10px;
+    border-bottom: solid 1px grey;
+}
+.button{
+    display: inline-block;
+    border: none;
+    color: white;
+    transition: all 0.5s;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    width:15%;
+    margin: 10px 10px;
+    height:64px;
+}
+.button span {
+    font-size:24px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+.button span:after {
+    content: '»';
+    position: absolute;
+    opacity:0;
+    top: -2px;
+    right: -20px;
+    transition: 0.5s;
+}
+.button:hover span {
+    padding-right: 15%;
+}
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+.container{
+    position: relative;
+    overflow: hidden;
+    float: left;
+    width: 100%;
+    height: 108vw;
+    margin-left: -1px;
+}
+.imgcontent{
+    position:absolute;
+    width: 100%;
+    height: 100vw;
+}
+.imgpage{
+    z-index: 998;
+    width: 100%;
+    position:absolute;
+    left:0;
+    padding-bottom: 6em;
+}
+
+.imgcontent{
+    text-indent: 0;
+}
+.picshow img{
+    margin:1vw 1vw;
+    width:15vw;
+    height:15vw;
+    object-fit: cover;
+}
+.page{
+    margin-top:-3em;
+    height: 3em;
+    color:blue;
+    font-size: 1.6vw;
+    float: left;
+    width: calc(100% + 2px);
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+    z-index: 1;
+    border-bottom:1px solid grey;
+}
+.page a{
+    cursor: pointer;
+    margin:0 1em;
+    z-index: 999;
+}
+@media only screen and ( max-width:1000px){
+    .search p,.searchform,.hotcity a,.hotcity p,.content div p{
+        height:2em;
+        line-height: 2em;
+    }
+    .aside{
+        text-indent: 10px;
+    }
+    .search,.hotcity{
+        margin-right: 0;
+    }
+    .search{
+        height: 4em;
+    }
+    .searchform input[type="text"]{
+        width: calc(100% - 2.5em);
+    }
+    .searchform input[type="submit"]{
+        margin:0;
+        width:32px;
+        height:32px;
+    }
+    .hotcity,.hotcountry{
+        height:calc(12em + 5px);
+    }
+    .section{
+        width: 76vw;
+        text-indent: 20px;
+    }
+    select{
+        width: 48%;
+        height:3em;
+    }
+    .button{
+        width: 48%;
+        height: 48px;
+        margin: 10px 1%;
+    }
+    .button span{
+        font-size: 16px;
+    }
+    .picshow img{
+        width:21vw;
+        height:21vw;
+    }
+    .container{
+        height: 189vw;
+    }
+}
+@media only screen and (max-width:1600px){
+    .page{
+        font-size: 20px;
+    }
+}
+@media only screen and ( max-width:750px){
+    .picshow img{
+        width:32vw;
+        height:32vw;
+    }
+    .container{
+        height: 417vw;
+    }
+}
+@media only screen and ( max-width:600px){
+   .aside{
+       width: 100%;
+   }
+   .search,.hotcity,.main{
+        margin:10px 10px;
+   }
+   .section{
+       width: 100%;
+   }
+   .picshow img{
+        width:calc(98vw - 20px);
+        height:calc(98vw - 20px);
+    }
+    .container{
+        height: calc(2400vw - 420px);
+    }
+    .page{
+        font-size: 16px;
+    }
+    .page a{
+        cursor: pointer;
+        margin:0 0.5em;
+    }
+}

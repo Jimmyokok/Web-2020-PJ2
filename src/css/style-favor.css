@@ -1,0 +1,215 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    background-color: #f6f6f6;
+    margin:0;
+    font-size:0;
+    line-height: 0px;
+    font-weight: 500;
+}
+.myfavor{
+    overflow: hidden;
+    float: left;
+    font-size: 1vw ;
+    width: 98%;
+    height: auto;
+    margin:calc(1% - 1px) calc(1% - 1px);
+    border:solid 1px grey;
+    border-radius: 5px;
+    margin-bottom: 2%;
+}
+.msgbox{
+    float: left;
+    font-size: 1vw ;
+    width: 100%;
+    height: auto;
+    display: none;
+}
+.msg{
+    text-indent: 30px;
+    line-height: 2em;
+    height: 2em;
+    display: none;
+    background-color: rgb(226, 223, 223);
+}
+.main{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-indent: 30px;
+    background-color: rgb(226, 223, 223);
+    color:grey ;
+    height: 3em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.container{
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 56em;
+    margin-left: -1px;
+}
+.imgcontent{
+    position:absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 56em;
+}
+.resultpage{
+    z-index: 998;
+    width: 100%;
+    position:absolute;
+    left:0;
+}
+.imgcontent{
+    text-indent: 0;
+}
+.resultdiv{
+    width: 100%;
+    position: relative;
+    float: left;
+    height: 18em;
+    border-top: solid 1px grey;
+}
+.resultdiv img{
+    float: left;
+    height: 16em;
+    margin:1em 1em;
+    max-width: 20em;
+    object-fit: cover;
+}
+.title{
+    padding-left:1em;
+    font-size: 1.2vw;
+    line-height: 2em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    float: right;
+    width:calc(100% - 24vw);
+}
+.desc{
+    padding-left:1em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    float: right;
+    width: calc(100% - 24vw);
+    font-size: 1vw;
+    line-height: 2em;
+    min-height: 8em;
+}
+.page{
+    z-index: 999;
+    height: 3em;
+    color:blue;
+    font-size: 1.6vw;
+    float: left;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+}
+.page a{
+    cursor: pointer;
+    margin:0 1em;
+}
+.button{
+    float: right;
+    border: none;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgb(192, 64, 64);
+    width:20%;
+    height: 3vw;
+    position: absolute;
+    bottom: 1vw;
+    right: 2vw;
+}
+.button span {
+    font-size:24px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: padding 0.5s;
+}
+.button span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: -5%;
+    right: -10%;
+    transition: 0.5s;
+}
+.button:hover span {
+    padding-right: 10%;
+}
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+@media only screen and (max-width:1600px){
+    .myfavor{
+        font-size: 16px;
+    }
+    .title{
+        font-size: 24px;
+        width:calc(100% - 380px);
+    }
+    .desc{
+        font-size: 20px;
+        width:calc(100% - 380px);
+    }
+    .button{
+        height: 48px;
+        bottom:16px;
+    }
+    .page{
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width:600px){
+    .resultdiv{
+        height: auto;
+    }
+    .resultdiv img{
+        width: calc(98vw - 2em);
+        max-width: 1000em;
+        height: calc(80vw - 2em);
+        object-fit: cover;
+    }
+    .container{
+        height: calc(300vw + 800px);
+    }
+    .imgcontent{
+        height: calc(300vw + 800px);
+    }
+    .title{
+        width:calc(100% - 40px);
+        padding:0 20px;
+        justify-content: center;
+    }
+    .desc{
+        width:calc(100% - 40px);
+        padding:0 20px;
+    }
+    .button{
+        position: unset;
+        width:40%;
+        margin:10px 30%;
+    }
+    .page{
+        font-size: 16px;
+    }
+    .page a{
+        cursor: pointer;
+        margin:0 0.5em;
+    }
+}

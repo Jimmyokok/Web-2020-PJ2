@@ -1,0 +1,162 @@
+body{
+    font-family:"Segoe UI";
+    color: black;
+    background-color: #f6f6f6;
+    margin:0;
+    font-size:0;
+    line-height: 0px;
+    font-weight: 500;
+}
+nav a:nth-child(2){
+    background-color: rgb(44, 43, 43);
+}
+nav a:nth-child(2):hover{
+    color: white;
+}
+.container{
+    position: relative;
+    overflow: hidden;
+    float: left;
+    width: 100%;
+    height: 60vw;
+}
+.headimg{
+    position:absolute;
+    width: 400%;
+    height: 60vw;
+}
+.headimg a img{
+    object-fit:cover;
+    height: 60vw;
+}
+.picshow{
+    font-size: 16px;
+    float: left;
+    margin:4% 4%;
+    width:25%;
+    height:30vw;
+    background-color: rgb(196, 192, 192);
+    border-radius: 25px;
+}
+.picshow img{
+    width:20vw;
+    height:20vw;
+    padding-top: 2.5vw;
+    padding-left: 2.5vw;
+    padding-bottom: 1vw;
+}
+.arrow {
+    text-decoration:none;
+    position: absolute;
+    top: 30vw;
+    color: green;
+    padding:0px 14px;
+    border-radius: 50%;
+    font-size: 50px;
+    z-index: 2;
+    display: none;
+}
+.arrow_left {
+    left: 10px;
+}
+.arrow_right {
+    right: 10px;
+}
+.container:hover .arrow {
+    display: block;
+}
+.arrow:hover {
+    background-color: rgba(0,0,0,0.2);
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container2{
+    display: block;
+}
+.picshow p{
+    text-align: center;
+    margin:0.5vw 2vw;
+}
+.picdesc{
+    font-size: 1vw;
+    line-height: 1.5vw;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    word-break: break-all;
+    overflow: hidden;
+}
+.pictitle{
+    font-size: 1.2vw;
+    line-height: 1.5vw;
+    font-weight: bold;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+img{
+    object-fit: cover;
+}
+.auxbuttons{
+    background-color: grey;
+    border-radius: 5px;
+    position: fixed;
+    right:10px;
+    bottom:20px;
+}
+.reload{
+    cursor: pointer;
+}
+.auxbuttons a img{
+    margin:10px 10px;
+}
+@media only screen and ( max-width:600px){
+    .picshow{
+        width:42%;
+        height:50vw;
+    }
+    .picshow img{
+        width:36vw;
+        height:36vw;
+    }
+    .auxbuttons img{
+        height: 16px;
+        width: 16px;
+    }
+    .picshow p{
+        margin:0px 24px;
+        margin-bottom: 4px;
+    }
+    .picdesc{
+        font-size: 12px;
+        line-height: 12px;
+    }
+    .pictitle{
+        font-size: 14px;
+        line-height: 18px;
+    }
+}
+@media only screen and ( max-width:430px){
+    .picshow{
+        width:92%;
+        height:110vw;
+    }
+    .picshow img{
+        padding-top: 5vw;
+        padding-left: 5vw;
+        padding-bottom: 2vw;
+        width:82vw;
+        height:82vw;
+    }
+    .auxbuttons img{
+        height: 12px;
+        width: 12px;
+    }
+    .picshow p{
+        margin:8px 24px;
+    }
+}
