@@ -88,6 +88,9 @@ function getfilters(){
     $.ajax({
         type: "POST",
         url: "./php/ajax.php?action=getfilters",
+        data:{
+            "type":0
+        },
         dataType: "json",
         success: function (json) {
             $(".content option").remove();

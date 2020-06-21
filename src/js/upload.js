@@ -2,38 +2,51 @@ var type;
 var contents=Array();
 var cities=Array();
 var countries=Array();
+function getcities(name,cityname){
+    $.ajax({
+        type: "POST",
+        url: "./php/ajax.php?action=getfilters",
+        data:{
+            "type":2,
+            "name":name
+        },
+        dataType: "json",
+        success: function (json) {
+            $(".city option").remove();
+            for(var i=0;i<json['countrynamecount'];i++){
+                cities[i]=json['countrycity'][i];
+                if(json['countrycity'][i]==cityname)$(".city").append("<option value='"+i+"' selected>"+json['countrycity'][i]+"</option>");
+                else $(".city").append("<option value='"+i+"'>"+json['countrycity'][i]+"</option>");
+            }
+        }
+    });
+}
 function getfilters(){
     $.ajax({
         type: "POST",
         url: "./php/ajax.php?action=getfilters",
+        data:{
+            "type":1,
+            "iso":""
+        },
         dataType: "json",
         success: function (json) {
             $(".country option").remove();
             for(var i=0;i<json['countrynamecount'];i++){
                 countries.push(json['countryname'][i]);
-                var citytemp=new Array();
-                for(var j=0;j<json['countrycity'][i].length;j++){
-                    citytemp.push(json['countrycity'][i][j]);
-                }
-                cities[i]=citytemp;
             }
             for(var i=0;i<json['countrynamecount'];i++){
                 $(".country").append("<option value='"+i+"'>"+countries[i]+"</option>");
             }
-            for(var i=0;i<cities[0].length;i++){
-                $(".city").append("<option value='"+i+"'>"+cities[0][i]+"</option>");
-            }
+            $(".city").append("<option value='-1'>None</option>");
         }
     });
 }
 $(document).ready(function(){
     $(".country").on("change",function(){
         var op=$(".country").val();
-        $(".city option").remove();
         if(op>=0){
-            for(var i=0;i<cities[op].length;i++){
-                $(".city").append("<option value='"+i+"'>"+cities[op][i]+"</option>");
-            }
+            getcities(countries[$(".country").val()],"");
         }    
     });
     getfilters();
@@ -83,11 +96,7 @@ $(document).ready(function(){
                 $(".country option").remove();
                 for(var i=0;i<countries.length;i++){
                     if(countries[i]==json['country']){
-                        $(".city option").remove();
-                        for(var j=0;j<cities[i].length;j++){
-                            if(cities[i][j]==json['city'])$(".city").append("<option value='"+j+"' selected>"+cities[i][j]+"</option>");
-                            $(".city").append("<option value='"+j+"'>"+cities[i][j]+"</option>");
-                        }
+                        getcities(json['country'],json['city']);
                         $(".country").append("<option value='"+i+"' selected>"+countries[i]+"</option>");
                     }
                     else $(".country").append("<option value='"+i+"'>"+countries[i]+"</option>");
@@ -116,7 +125,7 @@ $(document).ready(function(){
                     "title":$(".titles").val(),
                     "desc":$(".descinput").val(),
                     "country":countries[$(".country").val()],
-                    "city":city[$(".city").val()],
+                    "city":cities[$(".city").val()],
                     "content":contents[$(".content").val()]
                 },
                 dataType: 'json',
@@ -147,7 +156,7 @@ $(document).ready(function(){
                         "title":$(".titles").val(),
                         "desc":$(".descinput").val(),
                         "country":countries[$(".country").val()],
-                        "city":city[$(".city").val()],
+                        "city":cities[$(".city").val()],
                         "content":contents[$(".content").val()],
                         "path":path
                     },
@@ -179,7 +188,7 @@ $(document).ready(function(){
                         "title":$(".titles").val(),
                         "desc":$(".descinput").val(),
                         "country":countries[$(".country").val()],
-                        "city":city[$(".city").val()],
+                        "city":cities[$(".city").val()],
                         "content":contents[$(".content").val()],
                         "path":path
                     },

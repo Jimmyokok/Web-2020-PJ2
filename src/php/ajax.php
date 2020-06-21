@@ -265,6 +265,8 @@
             $arr['status']=0;
             $arr['msg']="Unable to access database!";
         }else{
+            $type = stripslashes(trim($_POST['type']));  
+            $name = stripslashes(trim($_POST['name']));  
             $result = $mysqli->query("SELECT content 
                                         FROM travelimage LEFT JOIN travelimagefavor 
                                         ON travelimage.imageid=travelimagefavor.imageid 
@@ -278,7 +280,8 @@
                 }
             }
             $result->close();
-            $result = $mysqli->query("SELECT countryname,ISO
+            if($type==0){
+                $result = $mysqli->query("SELECT countryname,ISO
                                         FROM (SELECT countrycodeiso,count(geonameid) AS count 
                                                 FROM (select citycode 
                                                         FROM (SELECT travelimage.imageid,citycode  
@@ -290,6 +293,9 @@
                                                 GROUP BY countrycodeiso) AS z,geocountries 
                                         WHERE z.countrycodeiso=iso
                                         ORDER BY count desc;");
+            }else{
+                $result = $mysqli->query("SELECT countryname,ISO FROM geocountries;");
+            }
             $countries=array();
             $isos=array();
             $countrycity=array();
@@ -301,8 +307,9 @@
                 }
             }
             $result->close();
-            for($i=0;$i<count($countries);$i++){
-                $resultcity=$mysqli->query("SELECT z.asciiname 
+            if($type==0){
+                for($i=0;$i<count($countries);$i++){
+                    $resultcity=$mysqli->query("SELECT DISTINCT z.asciiname 
                                                 FROM(SELECT asciiname,CountryCodeISO 
                                                         FROM (select citycode 
                                                                 FROM (SELECT travelimage.imageid,citycode 
@@ -314,14 +321,23 @@
                                                                 ORDER BY count(x.imageid) desc) As y,geocities 
                                                         WHERE y.citycode=geonameid) AS z,geocountries 
                                                 WHERE z.countrycodeiso='$isos[$i]' AND z.countrycodeiso=ISO;");
-                $cities=array();
+                    $cities=array();
+                    while($row2 = mysqli_fetch_assoc($resultcity)){
+                        if($row2['asciiname']!=null){
+                            array_push($cities,$row2['asciiname']);
+                        }
+                    }
+                    array_push($countrycity,$cities);
+                    $resultcity->close();
+                }
+            }else if($type==2){
+                $resultcity=$mysqli->query("SELECT DISTINCT asciiname FROM geocities,geocountries WHERE countrycodeiso=ISO AND countryname='$name' AND geocities.population>2000;");
+                $countrycount=mysqli_num_rows($resultcity);
                 while($row2 = mysqli_fetch_assoc($resultcity)){
                     if($row2['asciiname']!=null){
-                        array_push($cities,$row2['asciiname']);
+                        array_push($countrycity,$row2['asciiname']);
                     }
                 }
-                array_push($countrycity,$cities);
-                $resultcity->close();
             }
             $filterdata['content']=$contents;
             $filterdata['countryname']=$countries;

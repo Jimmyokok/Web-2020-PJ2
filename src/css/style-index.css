@@ -113,6 +113,10 @@ img{
 }
 .auxbuttons a img{
     margin:10px 10px;
+    opacity: 0.5;
+}
+.auxbuttons a img:hover{
+    opacity: 1;
 }
 @media only screen and ( max-width:600px){
     .picshow{
